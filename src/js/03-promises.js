@@ -34,18 +34,18 @@ function handleSubmit(event) {
         );
       }
     );
-    // console.log(
-    //   `created promise ${i} with delay ${
-    //     Number(firstDelay) + Number(nextPromise * (i - 1))
-    //   }`
-    // );
+    console.log(
+      `created promise ${i} with delay ${
+        Number(firstDelay) + Number(nextPromise * (i - 1))
+      }`
+    );
   }
 }
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
 
-  return (promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {
         // console.log(`${position} resolved`);
@@ -55,7 +55,7 @@ function createPromise(position, delay) {
         reject({ position: position, delay: delay });
       }
     }, delay);
-  }));
+  });
 }
 
 //
